@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
 <body>
-    <h1>Busca de Carros</h1>
-    <div>
-        <img src="corvette.jpeg">
-    </div>
+<div id="myChart" style="width:100%; max-width:600px; height:500px;"></div>
+
+<script>
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+// Set Data
+const data = google.visualization.arrayToDataTable([
+  ['Contry', 'Mhl'],
+  ['Brasil',5],
+  ['Alemanha',4],
+  ['Itália',4],
+  ['Argentina',3],
+  ['França',2],
+]);
+
+// Set Options
+const options = {
+  title:'Quantidade de copas do mundo de capa pais'
+};
+
+// Draw
+const chart = new google.visualization.BarChart(document.getElementById('myChart'));
+chart.draw(data, options);
+
+}
+</script>
+
 </body>
 </html>
