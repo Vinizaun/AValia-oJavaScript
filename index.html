@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html>
-<script src="https://www.gstatic.com/charts/loader.js"></script>
-
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <body>
-<div id="myChart" style="width:100%; max-width:600px; height:500px;"></div>
+
+<div id="myPlot" style="width:100%;max-width:700px"></div>
 
 <script>
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+const xArray = [5, 4, 4, 3, 2];
+const yArray = ["Brasil ", "Alemanha ", "Itália ", "Argentina ", "França "];
 
-function drawChart() {
+const data = [{
+  x:xArray,
+  y:yArray,
+  type:"bar",
+  orientation:"h",
+  marker: {color:"rgba(255,0,0,0.6)"}
+}];
 
-// Set Data
-const data = google.visualization.arrayToDataTable([
-  ['Contry', 'Mhl'],
-  ['Brasil',5],
-  ['Alemanha',4],
-  ['Itália',4],
-  ['Argentina',3],
-  ['França',2],
-]);
+const layout = {title:"Quantidade de copa do mundo de cada pais"};
 
-// Set Options
-const options = {
-  title:'Quantidade de copas do mundo de capa pais'
-};
+Plotly.newPlot("myPlot", data, layout);
 
-// Draw
-const chart = new google.visualization.BarChart(document.getElementById('myChart'));
-chart.draw(data, options);
-
-}
 </script>
-
+<img src="trofeu.jpg" >
 </body>
 </html>
